@@ -6,13 +6,21 @@ function initCheckBirthday() {
     document.getElementById('disclaimer').innerHTML = result;   
 }
 
+// Задача №3
 function checkBirthday(birthday) {
-    // код для задачи №1 писать здесь
+    let dateNow = Date.now();
+    let date = new Date(birthday);
+    birthday = +date;
+    let diff = dateNow - birthday;
+    let age = Math.floor((diff / 1000 / 60 / 60 / 24 / (365 * 4 + 1)) * 4);
+    if (age >= 18) {
+      return true;
+    }
 }
 
 function initPrintAnimalSound() {
     const animal = {
-        sound: 'grrrr',
+        sound: 'Rrrrmeow!',
     };
 
     const result = getAnimalSound(animal);
@@ -20,8 +28,14 @@ function initPrintAnimalSound() {
     document.getElementById('sound').innerHTML = result;   
 }
 
+// Задача №1
 function getAnimalSound(animal) {
-    // код для задачи №2 писать здесь
+    if (animal === undefined) {
+        return null;
+      } else {
+        let sound = animal.sound;
+        return sound;
+      }
 }
 
 function initCalculateStatement() {
@@ -34,6 +48,12 @@ function initCalculateStatement() {
     }
 }
 
+// Задача №2
 function getAverageMark(marks) {
-    // код для задачи №3 писать здесь
+    let value = 0;
+    for (let i = 0; i < marks.length; i++) {
+      value += Number(marks[i]);
+    }
+    let roundedAverage = value / marks.length;
+    return Math.round(roundedAverage);
 }
